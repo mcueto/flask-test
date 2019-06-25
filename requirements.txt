@@ -1,1 +1,2 @@
 Flask==1.0.3s
+Flask-PyMongo==2.3.0
