@@ -1,5 +1,15 @@
-from flask import Flask
+"""Flask hello_world project"""
+import os
+from flask import (
+    Flask,
+    render_template,
+)
+from flask_pymongo import PyMongo
+
 app = Flask(__name__)
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+mongo = PyMongo(app)
+
 
 @app.route("/")
 def hello():
@@ -8,4 +18,9 @@ def hello():
 
 @app.route("/greetings")
 def greetings():
-    return "Greetings"
+    greeting_list = mongo.db.greetings.find({})
+
+    return render_template(
+        "greetings.html",
+        greeting_list=greeting_list
+    )
