@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Greetings{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <ul>
+    {% for greeting in greeting_list %}
+    <li>
+      {{ greeting.message }}
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
