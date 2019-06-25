@@ -1,2 +1,2 @@
-Flask==1.0.3s
+Flask==1.0.3
 Flask-PyMongo==2.3.0
