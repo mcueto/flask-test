@@ -10,7 +10,8 @@ from flask_restful import (
 )
 from flask_pymongo import PyMongo
 from resources.greetings import (
-    GreetingsResource,
+    GreetingResource,
+    GreetingListResource,
 )
 
 app = Flask(__name__)
@@ -37,9 +38,14 @@ def greetings():
 
 # Register the GreetingsResource resource on the REST API
 api.add_resource(
-    GreetingsResource,
+    GreetingListResource,
     '/api/greetings'
 )
+api.add_resource(
+    GreetingResource,
+    '/api/greetings/<greeting_id>'
+)
+
 
 if __name__ == '__main__':
     app.run(
