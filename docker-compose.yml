@@ -5,6 +5,19 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/flask-test
     ports:
       - "5000:5000"
     entrypoint: python3 ./hello_world.py
+
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
