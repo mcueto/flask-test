@@ -24,3 +24,10 @@ def greetings():
         "greetings.html",
         greeting_list=greeting_list
     )
+
+
+if __name__ == '__main__':
+    app.run(
+        debug=True,
+        host='0.0.0.0'
+    )
