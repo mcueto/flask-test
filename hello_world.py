@@ -5,10 +5,13 @@ from flask import (
     render_template,
 )
 from flask_restful import (
-    Resource,
+    # Resource,
     Api,
 )
 from flask_pymongo import PyMongo
+from resources.greetings import (
+    GreetingsResource,
+)
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -30,15 +33,6 @@ def greetings():
         "greetings.html",
         greeting_list=greeting_list
     )
-
-
-class GreetingsResource(Resource):
-    def get(self):
-        return [
-            {
-                "message": "hello world"
-            }
-        ]
 
 
 # Register the GreetingsResource resource on the REST API
