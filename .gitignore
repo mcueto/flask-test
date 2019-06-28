@@ -190,3 +190,6 @@ dmypy.json
 
 data/*
 !data/.gitkeep
+
+web/*
+!web/.gitkeep

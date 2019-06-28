@@ -8,13 +8,13 @@ RUN apt-get update -y && \
     apt-get install -y python3-pip python-dev
 
 # We copy just the requirements.txt first to leverage Docker cache
-COPY ./requirements.txt /app/requirements.txt
+COPY ./requirements.txt /web/requirements.txt
 
-WORKDIR /app
+WORKDIR /web
 
 RUN pip3 install -r requirements.txt
 
-COPY . /app
+COPY . /web
 
 EXPOSE 5000
 

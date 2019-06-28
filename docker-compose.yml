@@ -4,12 +4,13 @@ services:
   web:
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./src/web/Dockerfile
     environment:
       - MONGO_URI=mongodb://mongodb:27017/flask-test
+    volumes:
+      - ./src/web:/web
     ports:
       - "5000:5000"
-    entrypoint: python3 ./hello_world.py
 
   mongodb:
     image: mongo:latest
