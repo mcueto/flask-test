@@ -1,9 +1,6 @@
-FROM ubuntu:18.04
+FROM python:3.6.8-alpine
 
 MAINTAINER Marcelo Cueto "cueto@live.cl"
-
-RUN apt-get update -y && \
-    apt-get install -y python3-pip python-dev
 
 # We copy just the requirements.txt first to leverage Docker cache
 COPY ./requirements.txt /backend/requirements.txt
