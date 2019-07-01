@@ -193,3 +193,6 @@ data/*
 
 web/*
 !web/.gitkeep
+
+backend/*
+!backend/.gitkeep
