@@ -1,7 +1,5 @@
 FROM ubuntu:18.04
 
-ENV FLASK_APP=hello_world.py MONGO_URI=mongodb://localhost:27017/flask-test
-
 MAINTAINER Marcelo Cueto "cueto@live.cl"
 
 RUN apt-get update -y && \
@@ -18,6 +16,4 @@ COPY . /web
 
 EXPOSE 5000
 
-ENTRYPOINT [ "python3" ]
-
-CMD [ "hello_world.py" ]
+CMD [ "flask", "run", "--host=0.0.0.0", "--port=5000" ]
